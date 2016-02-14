@@ -2,7 +2,7 @@
 title: "Centralne Twierdzenie Graniczne od podstaw"
 author: "Michał Danaj"
 date: "14 lutego 2016"
-output: html_document
+output: pdf_document
 ---
 
 

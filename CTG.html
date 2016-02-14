@@ -78,7 +78,7 @@ img {
 </div>
 <div id="wyjasnienia" class="section level2">
 <h2>Wyjaśnienia</h2>
-<p>W dalszej części zostaną wytłumaczone pojęcia które zostały użyte w twierdzeniu oraz, jak mam nadzieję, uda się je instazobrazować w trochę bardziej namacalny i intuicyjny sposób.</p>
+<p>W dalszej części zostaną wytłumaczone pojęcia które zostały użyte w twierdzeniu oraz, jak mam nadzieję, uda się je zobrazować w trochę bardziej namacalny i intuicyjny sposób.</p>
 <div id="zmienna-losowa" class="section level3">
 <h3>Zmienna losowa</h3>
 <p>Zmienna losowa to funkcja która z prawdopodobieństwem zadanym przez jej rozkład przyjmuje określone wartości liczbowe. Np. zmienna losowa <span class="math">\(X_i\)</span> z rozkładu dwumianowego, przyjmuje wartości {0, 1}:</p>
@@ -110,7 +110,7 @@ X1</code></pre>
 <div id="ciag-zmiennych-losowych" class="section level3">
 <h3>Ciąg zmiennych losowych</h3>
 <p>Mając <span class="math">\(n\)</span> zmiennych losowych, możemy mówić o ciągu zmiennych losowych.</p>
-<p>Przykładowo, ciąg pięciu zmiennych losowych z rokładu dwumianowego:</p>
+<p>Przykładowo, ciąg pięciu zmiennych losowych z rozkładu dwumianowego:</p>
 <pre class="r"><code>p &lt;- 0.5 #będziemy określać rozkład dwumianowy z prawdopodibieństwem p wylosowania jedynki
 X &lt;- rbinom(5, size=1, prob=p)
 names(X) &lt;- c('X1','X2','X3','X4','X5') #nadaję nazwy poszczególnym zmiennym losowym</code></pre>
@@ -135,10 +135,10 @@ X</code></pre>
 <h3>Średnia z ciągu zmiennych losowych</h3>
 <p>Na podstawie ciągu zmiennych losowych, jesteśmy w stanie generować pochodne zmienne losowe i badać ich własności. Oczywistymi wielkościami, które moglibyśmy badać są powszechnie używane statystyki, jak średnia, wariancja, min, max, itp.</p>
 <p>Rozważając Centralne Twierdzenie Graniczne, wielkością której chcielibyśmy się przyjrzeć jest średnia. Policzmy zatem dwie najczęściej rozpatrywane wielkości rozkładu, czyli wartość oczekiwaną oraz wariancję, udowadniając tym samym (o ile się uda) część CTG.</p>
-<p>Dla wartości oczekiwanej będziemy mieli: <span class="math">\[\mathbb{E} \Big( \frac{1}{n}\sum_{i=1}^n X_i \Big)=\]</span> Stałą można wyciągnąć przed wartość oczekiwaną, a wartość oczekiwana sumy to suma wartości oczekiwanych. Możemy zatem z wartością oczekiwaną wejść pod znak sumy. Wartość oczekiwana każej zmiennej losowej z ciągu ma wartość oczekiwaną <span class="math">\(\mu\)</span>, a zatem ostatecznie otrzymamy</p>
+<p>Dla wartości oczekiwanej będziemy mieli: <span class="math">\[\mathbb{E} \Big( \frac{1}{n}\sum_{i=1}^n X_i \Big)=\]</span> Stałą można wyciągnąć przed wartość oczekiwaną, a wartość oczekiwana sumy to suma wartości oczekiwanych. Możemy zatem z wartością oczekiwaną wejść pod znak sumy. Wartość oczekiwana każdej zmiennej losowej z ciągu ma wartość oczekiwaną <span class="math">\(\mu\)</span>, a zatem ostatecznie otrzymamy</p>
 <p><span class="math">\[=\frac{1}{n}\sum_{i=1}^n \mathbb{E}X_i=\frac{1}{n}\sum_{i=1}^n \mu=\frac{1}{n} n \mu = \mu\]</span></p>
 <p>Analogiczne dla wariancji <span class="math">\[\mathbb{V}\Big( \frac{1}{n}\sum_{i=1}^n X_i \Big) = \frac{1}{n^2}\sum_{i=1}^n \mathbb{V}X_i = \frac{1}{n^2}\sum_{i=1}^n \sigma^2 = \frac{1}{n^2} n \sigma^2 = \frac{\sigma^2}{n}\]</span></p>
-<p>Pokazaliśmy zatem, że rozkład średniej ma wartośc oczekiwaną i odchylenie standardowe takie jak w CTG. Zainteresowanych dowodem że rozkład średniej zbiega do rozkładu normalnego odesyłam do literatury.</p>
+<p>Pokazaliśmy zatem, że rozkład średniej ma wartość oczekiwaną i odchylenie standardowe takie jak w CTG. Zainteresowanych dowodem że rozkład średniej zbiega do rozkładu normalnego odsyłam do literatury.</p>
 <p>Zwrócę tutaj uwagę na jedną rzecz, która może nie jest konieczna do zrozumienia CTG, ale myślę że warto o niej wspomnieć. Patrząc na postać wariancji średniej, widać że będzie się ona zmieniać wraz ze zmianą <span class="math">\(n\)</span>. Wzrost <span class="math">\(n\)</span>, powoduje zmniejszenie wariancji.</p>
 <p>Wynik ten jest zgodny z intuicją. Chcąc policzyć średnią wagę 5-cio latków w Polsce, wybieramy z całej populacji pewną próbę <span class="math">\(n\)</span> 5-cio latków i w oparciu o tę próbę wyliczamy średnią. Przy dwóch pięciolatkach czujemy, że nasza średnia dość mocno może odbiegać od rzeczywistej średniej - stąd duża wariancja. Przy 100 będziemy już bardziej przekonani co do zgodności z rzeczywistą średnią, by przy 10 tys. z dużą pewności stwierdzić że jesteśmy blisko rzeczywistej średniej na populacji, co oznacza że nasza średnia ma małą wariancję.</p>
 </div>
@@ -148,7 +148,7 @@ X</code></pre>
 <div id="rozkad-jednostajny" class="section level4">
 <h4>Rozkład jednostajny</h4>
 <p>Weźmy ciąg niezależnych zmiennych losowych o rozkładzie jednostajnym na odcinku (0,1). Aby pokazać rozkład średniej (zależny od <span class="math">\(n\)</span> jak pokazał poprzedni punkt) z tego ciągu, musimy wygenerować ciąg zmiennych losowych <span class="math">\(Z_j\)</span> będących średnimi.</p>
-<p><span class="math">\[ Z_j = \frac{1}{n}\sum_{i=1}^n X_{i,j}\]</span> gdzie <span class="math">\(i=1,2,...,n\)</span> oraz <span class="math">\(j=1,2,...,N\)</span> oraz <span class="math">\(X_{i,j}\)</span> jest ciągiem niezlaeżnych zmiennych losowych z rozkładu jednostajnego na odcinu (0,1).</p>
+<p><span class="math">\[ Z_j = \frac{1}{n}\sum_{i=1}^n X_{i,j}\]</span> gdzie <span class="math">\(i=1,2,...,n\)</span> oraz <span class="math">\(j=1,2,...,N\)</span> oraz <span class="math">\(X_{i,j}\)</span> jest ciągiem niezależnych zmiennych losowych z rozkładu jednostajnego na odcinku (0,1).</p>
 <p>Przyjrzyjmy się przykładowym realizacjom zmiennych losowych <span class="math">\(X_{i,j}\)</span> oraz <span class="math">\(Z_j\)</span>.</p>
 <pre class="r"><code>N&lt;-5 #liczba średnich
 n &lt;- 2 #liczba zmiennych losowych
@@ -189,7 +189,7 @@ lines(density(Z), col='blue')</code></pre>
 </div>
 <div id="rozkad-dwumianowy" class="section level4">
 <h4>Rozkład dwumianowy</h4>
-<p>Intuicyjnie zapewne czujemy, że trudniej będzie osiągnąć rozkład normalny średniej z rozkładu dwumianowego. Zamiast całego spektrum wartości jakie może osiągnąć zmienna losowa w przypadku rozkładu jednostajneto, tutaj są możliwe tylko dwie wartości. Co więcej, zbieżność do rozkładu normalnego jest zależna od parametru <span class="math">\(p\)</span>. Im <span class="math">\(p\)</span> jest dalej od 1/2, tym zbieżność będzie słabsza. Przyjrzyjmy się zatem przykładom dla <span class="math">\(p=0.1\)</span>. O ile w rozkładzie jednostajnym praktycznie kończyliśmy przy 25 zmiennych losowych, tutuj proponuję od nich rozpocząć.</p>
+<p>Intuicyjnie zapewne czujemy, że trudniej będzie osiągnąć rozkład normalny średniej z rozkładu dwumianowego. Zamiast całego spektrum wartości jakie może osiągnąć zmienna losowa w przypadku rozkładu jednostajnego, tutaj są możliwe tylko dwie wartości. Co więcej, zbieżność do rozkładu normalnego jest zależna od parametru <span class="math">\(p\)</span>. Im <span class="math">\(p\)</span> jest dalej od 1/2, tym zbieżność będzie słabsza. Przyjrzyjmy się zatem przykładom dla <span class="math">\(p=0.1\)</span>. O ile w rozkładzie jednostajnym praktycznie kończyliśmy przy 25 zmiennych losowych, tutaj proponuję od nich rozpocząć.</p>
 <pre class="r"><code>N&lt;-100000 #liczba średnich
 n &lt;- 25 #liczba zmiennych losowych
 p &lt;- 0.1
@@ -212,10 +212,10 @@ lines(density(Z, adjust=3), col='blue')</code></pre>
 </div>
 <div id="zbieznosc" class="section level2">
 <h2>Zbieżność</h2>
-<p>W poprzednim punkcie widzieliśmy, że fakt zbieżności asymptotycznej nie mówi nam nic o prędkości tej zbieżności. Zbieżność asymptotyczna niekoniecznie musi pociągać za sobą zbieżność w naszym konkretnym zagadnienu. Do podjęcia decyzji czy faktycznie możemy skorzystać z CTG, możemy podejść na dwa sposoby. Jako najszybszy i najpowszechniej stosowany, to oparcie się o ogólnie przyjęte kryteria np. że dla rozkładu dwumianowego możemy skorzystać z CTG gdy ……… Jako ćwiczenie proponuję sprawdzić, czy faktycznie powyższe kreterium pozwala nam osiągnąć zadowalającą zbieżność rozkładu dla różnych <span class="math">\(p\)</span>.</p>
+<p>W poprzednim punkcie widzieliśmy, że fakt zbieżności asymptotycznej nie mówi nam nic o prędkości tej zbieżności. Zbieżność asymptotyczna niekoniecznie musi pociągać za sobą zbieżność w naszym konkretnym zagadnieniu. Do podjęcia decyzji czy faktycznie możemy skorzystać z CTG, możemy podejść na dwa sposoby. Jako najszybszy i najpowszechniej stosowany, to oparcie się o ogólnie przyjęte kryteria np. że dla rozkładu dwumianowego możemy skorzystać z CTG gdy ……… Jako ćwiczenie proponuję sprawdzić, czy faktycznie powyższe kryterium pozwala nam osiągnąć zadowalającą zbieżność rozkładu dla różnych <span class="math">\(p\)</span>.</p>
 <p>Jeśli jednak chcielibyśmy podejść do tematu bardziej świadomie, możemy zrobić symulację Monte Carlo, czyli dokładnie takie symulacje jak powyżej aby stwierdzić, czy rozkład średniej jest rozkładem normalnym. Oczywiście symulację taką możemy wykonać tylko w przypadku, gdy znamy rozkład początkowy. Jeśli natomiast dysponujemy próbą, to rozkładu tego nie znamy i w zasadzie znać nie musimy. Możemy się w takim przypadku oprzeć o metody bootstrap.</p>
 <p><strong>Uwaga 1</strong> Pamiętajmy, że stosując test statystyczny o poziomie istotności np. 5% do określenia czy zasymulowany rozkład średniej jest rozkładem normalnym, w 5% symulacji test pokaże że nie jest nawet jeśli byłby!</p>
-<p><strong>Uwaga 2</strong> Nawet jeśli wszystkie znaki na ziemi i niebie wskazują, że rozkład średniej w Twoim przypadku nie jest rozkładem normalnym, to różnice w rozkładach mogą być tak niewielkie, że z praktycznego punktu widzenia w rozpatrywanym przez Ciebie zagadnieniu są one pomijalne. Jeśli faktycznie tak jest, nic nie stoi na przeszkodzie (poza ewentualnie narzuconymi z góry wymogami), aby podjąć decyzję (świadomą!) o zastosowaniu przyliżenia normalnego.</p>
+<p><strong>Uwaga 2</strong> Nawet jeśli wszystkie znaki na ziemi i niebie wskazują, że rozkład średniej w Twoim przypadku nie jest rozkładem normalnym, to różnice w rozkładach mogą być tak niewielkie, że z praktycznego punktu widzenia w rozpatrywanym przez Ciebie zagadnieniu są one pomijalne. Jeśli faktycznie tak jest, nic nie stoi na przeszkodzie (poza ewentualnie narzuconymi z góry wymogami), aby podjąć decyzję (świadomą!) o zastosowaniu przybliżenia normalnego.</p>
 </div>
 
 
