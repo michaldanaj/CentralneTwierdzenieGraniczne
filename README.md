@@ -1,2 +1,2 @@
 # CentralneTwierdzenieGraniczne
-Kody i wyniki prezentujące ideę Centralnego Twierdzenia Granicznego
+Kody i wyniki prezentujące ideę Centralnego Twierdzenia Granicznego.
