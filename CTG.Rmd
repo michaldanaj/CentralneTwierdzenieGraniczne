@@ -28,7 +28,7 @@ W dalszej części będę się odnosić do tej postaci twierdzenia.
 
 ## Wyjaśnienia 
 
-W dalszej części zostaną wytłumaczone pojęcia które zostały użyte w twierdzeniu oraz, jak mam nadzieję, uda się je instazobrazować w trochę bardziej namacalny i intuicyjny sposób.
+W dalszej części zostaną wytłumaczone pojęcia które zostały użyte w twierdzeniu oraz, jak mam nadzieję, uda się je zobrazować w trochę bardziej namacalny i intuicyjny sposób.
 
 ###Zmienna losowa
 
@@ -76,7 +76,7 @@ X1
 
 Mając $n$ zmiennych losowych, możemy mówić o ciągu zmiennych losowych.
 
-Przykładowo, ciąg pięciu zmiennych losowych z rokładu dwumianowego:
+Przykładowo, ciąg pięciu zmiennych losowych z rozkładu dwumianowego:
 ```{r}
 p <- 0.5 #będziemy określać rozkład dwumianowy z prawdopodibieństwem p wylosowania jedynki
 X <- rbinom(5, size=1, prob=p)
@@ -139,14 +139,14 @@ Rozważając Centralne Twierdzenie Graniczne, wielkością której chcielibyśmy
 
 Dla wartości oczekiwanej będziemy mieli:
 $$\mathbb{E} \Big( \frac{1}{n}\sum_{i=1}^n X_i \Big)=$$
-Stałą można wyciągnąć przed wartość oczekiwaną, a wartość oczekiwana sumy to suma wartości oczekiwanych. Możemy zatem z wartością oczekiwaną wejść pod znak sumy. Wartość oczekiwana każej zmiennej losowej z ciągu ma wartość oczekiwaną $\mu$, a zatem ostatecznie otrzymamy
+Stałą można wyciągnąć przed wartość oczekiwaną, a wartość oczekiwana sumy to suma wartości oczekiwanych. Możemy zatem z wartością oczekiwaną wejść pod znak sumy. Wartość oczekiwana każdej zmiennej losowej z ciągu ma wartość oczekiwaną $\mu$, a zatem ostatecznie otrzymamy
 
 $$=\frac{1}{n}\sum_{i=1}^n \mathbb{E}X_i=\frac{1}{n}\sum_{i=1}^n \mu=\frac{1}{n} n \mu = \mu$$
 
 Analogiczne dla wariancji
 $$\mathbb{V}\Big( \frac{1}{n}\sum_{i=1}^n X_i \Big) = \frac{1}{n^2}\sum_{i=1}^n \mathbb{V}X_i = \frac{1}{n^2}\sum_{i=1}^n \sigma^2 = \frac{1}{n^2} n \sigma^2 = \frac{\sigma^2}{n}$$
 
-Pokazaliśmy zatem, że rozkład średniej ma wartośc oczekiwaną i odchylenie standardowe takie jak w CTG. Zainteresowanych dowodem że rozkład średniej zbiega do rozkładu normalnego odesyłam do literatury.
+Pokazaliśmy zatem, że rozkład średniej ma wartość oczekiwaną i odchylenie standardowe takie jak w CTG. Zainteresowanych dowodem że rozkład średniej zbiega do rozkładu normalnego odsyłam do literatury.
 
 Zwrócę tutaj uwagę na jedną rzecz, która może nie jest konieczna do zrozumienia CTG, ale myślę że warto o niej wspomnieć. Patrząc na postać wariancji średniej, widać że będzie się ona zmieniać wraz ze zmianą $n$. Wzrost $n$, powoduje zmniejszenie wariancji.
 
@@ -162,7 +162,7 @@ Zobrazujmy sobie teraz działanie twierdzenia na przykładach.
 Weźmy ciąg niezależnych zmiennych losowych o rozkładzie jednostajnym na odcinku (0,1). Aby pokazać rozkład średniej (zależny od $n$ jak pokazał poprzedni punkt) z tego ciągu, musimy wygenerować ciąg zmiennych losowych $Z_j$ będących średnimi.
 
 $$ Z_j = \frac{1}{n}\sum_{i=1}^n X_{i,j}$$
-gdzie $i=1,2,...,n$ oraz $j=1,2,...,N$ oraz $X_{i,j}$ jest ciągiem niezlaeżnych zmiennych losowych z rozkładu jednostajnego na odcinu (0,1).
+gdzie $i=1,2,...,n$ oraz $j=1,2,...,N$ oraz $X_{i,j}$ jest ciągiem niezależnych zmiennych losowych z rozkładu jednostajnego na odcinku (0,1).
 
 Przyjrzyjmy się przykładowym realizacjom zmiennych losowych $X_{i,j}$ oraz $Z_j$.
 
@@ -262,7 +262,7 @@ Możemy jeszcze potwierdzić normalność ostatniego rozkładu średniej testem 
 
 #### Rozkład dwumianowy
 
-Intuicyjnie zapewne czujemy, że trudniej będzie osiągnąć rozkład normalny średniej z rozkładu dwumianowego. Zamiast całego spektrum wartości jakie może osiągnąć zmienna losowa w przypadku rozkładu jednostajneto, tutaj są możliwe tylko dwie wartości. Co więcej, zbieżność do rozkładu normalnego jest zależna od parametru $p$. Im $p$ jest dalej od 1/2, tym zbieżność będzie słabsza. Przyjrzyjmy się zatem przykładom dla $p=0.1$. O ile w rozkładzie jednostajnym praktycznie kończyliśmy przy 25 zmiennych losowych, tutuj proponuję od nich rozpocząć.
+Intuicyjnie zapewne czujemy, że trudniej będzie osiągnąć rozkład normalny średniej z rozkładu dwumianowego. Zamiast całego spektrum wartości jakie może osiągnąć zmienna losowa w przypadku rozkładu jednostajnego, tutaj są możliwe tylko dwie wartości. Co więcej, zbieżność do rozkładu normalnego jest zależna od parametru $p$. Im $p$ jest dalej od 1/2, tym zbieżność będzie słabsza. Przyjrzyjmy się zatem przykładom dla $p=0.1$. O ile w rozkładzie jednostajnym praktycznie kończyliśmy przy 25 zmiennych losowych, tutaj proponuję od nich rozpocząć.
 
 
 
@@ -321,10 +321,10 @@ Jak widać, w przypadku rozkładu dwumianowego nawet dla liczności $n=1000$ i $
 
 ## Zbieżność
 
-W poprzednim punkcie widzieliśmy, że fakt zbieżności asymptotycznej nie mówi nam nic o prędkości tej zbieżności. Zbieżność asymptotyczna niekoniecznie musi pociągać za sobą zbieżność w naszym konkretnym zagadnienu. Do podjęcia decyzji czy faktycznie możemy skorzystać z CTG, możemy podejść na dwa sposoby. Jako najszybszy i najpowszechniej stosowany, to oparcie się o ogólnie przyjęte kryteria np. że dla rozkładu dwumianowego możemy skorzystać z CTG gdy ......... Jako ćwiczenie proponuję sprawdzić, czy faktycznie powyższe kreterium pozwala nam osiągnąć zadowalającą zbieżność rozkładu dla różnych $p$.
+W poprzednim punkcie widzieliśmy, że fakt zbieżności asymptotycznej nie mówi nam nic o prędkości tej zbieżności. Zbieżność asymptotyczna niekoniecznie musi pociągać za sobą zbieżność w naszym konkretnym zagadnieniu. Do podjęcia decyzji czy faktycznie możemy skorzystać z CTG, możemy podejść na dwa sposoby. Jako najszybszy i najpowszechniej stosowany, to oparcie się o ogólnie przyjęte kryteria np. że dla rozkładu dwumianowego możemy skorzystać z CTG gdy ......... Jako ćwiczenie proponuję sprawdzić, czy faktycznie powyższe kryterium pozwala nam osiągnąć zadowalającą zbieżność rozkładu dla różnych $p$.
 
 Jeśli jednak chcielibyśmy podejść do tematu bardziej świadomie, możemy zrobić symulację Monte Carlo, czyli dokładnie takie symulacje jak powyżej aby stwierdzić, czy rozkład średniej jest rozkładem normalnym. Oczywiście symulację taką możemy wykonać tylko w przypadku, gdy znamy rozkład początkowy. Jeśli natomiast dysponujemy próbą, to rozkładu tego nie znamy i w zasadzie znać nie musimy. Możemy się w takim przypadku oprzeć o metody bootstrap.
 
 **Uwaga 1** Pamiętajmy, że stosując test statystyczny o poziomie istotności np. 5% do określenia czy zasymulowany rozkład średniej jest rozkładem normalnym, w 5% symulacji test pokaże że nie jest nawet jeśli byłby! 
 
-**Uwaga 2** Nawet jeśli wszystkie znaki na ziemi i niebie wskazują, że rozkład średniej w Twoim przypadku nie jest rozkładem normalnym, to różnice w rozkładach mogą być tak niewielkie, że z praktycznego punktu widzenia w rozpatrywanym przez Ciebie zagadnieniu są one pomijalne. Jeśli faktycznie tak jest, nic nie stoi na przeszkodzie (poza ewentualnie narzuconymi z góry wymogami), aby podjąć decyzję (świadomą!) o zastosowaniu przyliżenia normalnego.
+**Uwaga 2** Nawet jeśli wszystkie znaki na ziemi i niebie wskazują, że rozkład średniej w Twoim przypadku nie jest rozkładem normalnym, to różnice w rozkładach mogą być tak niewielkie, że z praktycznego punktu widzenia w rozpatrywanym przez Ciebie zagadnieniu są one pomijalne. Jeśli faktycznie tak jest, nic nie stoi na przeszkodzie (poza ewentualnie narzuconymi z góry wymogami), aby podjąć decyzję (świadomą!) o zastosowaniu przybliżenia normalnego.
